@@ -178,7 +178,7 @@ BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.exynos4
 
-# Show Battery Percentage in LPM mode
+# LPM Battery Percentage
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # inherit from the proprietary version
