@@ -517,9 +517,9 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     oneshot
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class main
@@ -546,3 +546,16 @@ service bootsnd /system/bin/tinyplay /system/etc/sound/silence.wav -D 0 -d 0 -p 
     user root
     group audio
     oneshot
+
+# Powersave
+on property:sys.perf.profile=0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+
+# Balanced
+on property:sys.perf.profile=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor pegasusq
+
+# Performance
+on property:sys.perf.profile=2
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+
