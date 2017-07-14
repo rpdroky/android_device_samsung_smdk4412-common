@@ -23,7 +23,7 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.util.Slog;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import org.cyanogenmod.hardware.util.FileUtils;
 
 public class DisplayColorCalibration {
 
@@ -43,8 +43,7 @@ public class DisplayColorCalibration {
     static {
         // We can also support GPU transform using RenderEngine. This is not
         // preferred though, as it has a high power cost.
-        sUseGPUMode = !FileUtils.isFileWritable(RED_FILE) ||
-                SystemProperties.getBoolean("debug.livedisplay.force_gpu", false);
+        sUseGPUMode = SystemProperties.getBoolean("debug.livedisplay.force_gpu", false);
     }
 
     public static boolean isSupported() {
