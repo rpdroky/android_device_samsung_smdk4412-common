@@ -76,7 +76,6 @@ PRODUCT_PACKAGES := \
     libsecion \
     libstlport \
     libsync \
-    libUMP \
     lights.exynos4 \
     macloader \
     Snap \
